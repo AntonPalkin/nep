@@ -1,0 +1,14 @@
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160530-44905-1jtqbqz.rb extconf.rb
+creating Makefile
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/json-1.8.3/ext/json
+make "DESTDIR=" install
+installing default libraries

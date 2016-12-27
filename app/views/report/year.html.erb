@@ -1,0 +1,55 @@
+<h3>Срез за <%=@start_date.year%> год</h3>
+<hr>
+<pre>
+<%=params.inspect%><br>
+<%=@start_date%><br>
+<%=@end_date%><br>
+<%=@end_date.strftime("%B")%><br>
+
+
+</pre>
+<%= form_tag do  %>
+  <%= label_tag "За" %>
+  <%= select_year(@start_date.year) %><%= button_tag "готово" %>
+<% end %>
+
+<p>
+  <table class="table table-striped">
+    <tr >
+      <td>Месяц</td>
+      <td>Сумма</td>
+      <td>Оплачено</td>
+      <td>Остаток</td>
+    </tr>
+    <% (1..12).each do |i| %>
+    <tr>
+
+        <td><%=i%></td>
+        <td>
+          <% @bills.each do |bill| %>
+            <% if bill.pay_date.month.to_i == i %>
+              <% @sum = @sum + bill.sum %>
+              <% @paid = @paid + bill.paid %>
+            <% end %>
+          <% end %>
+          <%= @sum %>
+
+        </td>
+        <td><%= @paid %>
+        </td>
+        <td><%= @sum - @paid%></td>
+
+    </tr>
+    <% @paid = 0 %>
+    <% @sum = 0 %>
+    <% end %>
+    <tr>
+    <td>Итого</td>
+    <td><%=@bills.sum('sum')%></td>
+    <td><%=@bills.sum('paid')%></td>
+    <td><%=@bills.sum('sum') - @bills.sum('paid')%></td>
+    </tr>
+
+
+
+  </table>

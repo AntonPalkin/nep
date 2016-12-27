@@ -1,0 +1,64 @@
+<h3>Детализация</h3>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Оплатить до:</strong>
+  <%= @bill.pay_date.strftime("%d-%m-%Y")  %>
+</p>
+
+<p>
+  <strong>Кому:</strong>
+  <%= Comp.find(@bill.to_comp_id).name %>
+</p>
+
+<p>
+  <strong>От кого:</strong>
+  <%= Comp.find(@bill.from_comp_id).name %>
+
+</p>
+
+<p>
+  <strong>Сумма:</strong>
+  <%= @bill.sum %>
+</p>
+
+<p>
+  <strong>Тип статьи:</strong>
+  <%= TypeIoe.find(@bill.type_id).name %>
+</p>
+
+<p>
+  <strong>Статья затрат:</strong>
+  <%= Ioe.find(@bill.ioe_id).name %>
+</p>
+
+<p>
+  <strong>Проект: </strong>
+  <%= Project.find(@bill.project_id).name %>
+</p>
+
+<p>
+  <strong>Статус: </strong>
+  <%= TypeOfBill.find(@bill.type_of_bill_id).name %>
+</p>
+
+
+
+<p>
+  <strong>Описание: </strong>
+  <%= @bill.description %>
+</p>
+
+<p>
+  <strong>Ответственный: </strong>
+  <%= User.find(@bill.user_id).name %>
+</p>
+
+<p>
+  <strong>Файл: </strong>
+  <% if @bill.document %>
+  <a href="<%= @bill.document %>">Скачать PDF</a>
+</p>
+<% end %>
+<%= link_to 'Назад', :back %>

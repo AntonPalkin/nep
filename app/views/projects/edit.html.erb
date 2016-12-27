@@ -1,0 +1,7 @@
+<h3>Редактирование проекта</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Подробнее', @project %> |
+<%= link_to 'Назад', projects_path %> |
+<%= link_to 'Удалить', @project, method: :delete, data: { confirm: 'Вы уверены?' } %>

@@ -1,0 +1,14 @@
+<%= form_tag controller: "bills", action: "pay", method: "post" do %>
+    <div class="field">
+      <%= label_tag "Сумма к оплате:" %> <%= @bill.sum %> <br>
+      <%= label_tag "Оплачено:" %> <%= @bill.paid %> <br>
+      <%= label_tag "Остаток:" %> <%= text_field_tag :sum , (@bill.sum - @bill.paid) %>
+    </div>
+
+    <div class="actions">
+       <%= submit_tag "Оплатить"  %>
+    </div>
+
+    <%= link_to 'Назад', bills_path %>
+
+<% end %>

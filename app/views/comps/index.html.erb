@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Список компаний</h3>
+<%= link_to 'Новая компания', new_comp_path if current_user.is_admin? %>
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Бренд</th>
+      <th>Название</th>
+      <th>Баланс</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comps.each do |comp| %>
+      <tr>
+        <td><%= render text:"[i] " if comp.comp_type_id == 2 %><%= comp.brand %></b></td>
+        <td>
+            <%= link_to comp.name, comp %>
+        </td>
+        <td><%= comp.balance %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

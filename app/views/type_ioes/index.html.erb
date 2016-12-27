@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Типы статей затрат</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_ioes.each do |type_io| %>
+      <tr>
+        <td><%= link_to type_io.name , type_io %></td></tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новая', new_type_io_path %>

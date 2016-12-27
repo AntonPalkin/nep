@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2016-01-29 23:30:44
+  to_comp_id: 1
+  from_comp_id: 1
+  sum: 1.5
+  type_id: 1
+  ioe_id: 1
+  project_id: 1
+  list_id: 1
+  description: MyString
+  user_id: 1
+
+two:
+  date: 2016-01-29 23:30:44
+  to_comp_id: 1
+  from_comp_id: 1
+  sum: 1.5
+  type_id: 1
+  ioe_id: 1
+  project_id: 1
+  list_id: 1
+  description: MyString
+  user_id: 1

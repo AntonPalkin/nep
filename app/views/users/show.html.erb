@@ -1,0 +1,5 @@
+<h3><%= @user.name %></h3><br>
+<%= render "form" %>
+<br>
+<%= link_to 'Удалить', @user, method: :delete, data: { confirm: 'Вы уверены?' } %> |
+<%= link_to 'Назад', users_path %>

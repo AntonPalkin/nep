@@ -1,0 +1,48 @@
+<h3>Срез за период с <%=@start_date%> по <%=@end_date%></h3>
+<hr>
+<pre>
+<%=params.inspect%><br>
+<%=@start_date%><br>
+<%=@end_date%><br>
+<%=@bills.each {|bill| bill.inspect}%>
+</pre>
+<%= form_tag do %>
+
+  <%= label_tag "Дата от" %>
+    <%= date_field_tag :start_date, @start_date %>
+  <%= label_tag "Дата до" %>
+  <%= date_field_tag :end_date, @end_date %>
+  <%= button_tag "готово" %>
+<% end %>
+
+<p>
+  <table class="table table-striped">
+    <tr >
+      <td>Число</td>
+      <td>Название</td>
+      <td>Сумма</td>
+      <td>Оплачено</td>
+      <td>Остаток</td>
+    </tr>
+
+    <% @bills.each do |bill| %>
+    <tr>
+      <td><%= bill.pay_date %></td>
+      <td><%= Comp.find(bill.to_comp_id).name %></td>
+      <td><%= bill.sum %></td>
+      <td><%= bill.paid %></td>
+      <td><%= bill.sum - bill.paid %></td>
+
+    </tr>
+    <% end %>
+
+    <tr>
+      <td>Итого:</td>
+      <td></td>
+      <td><%=@bills.sum('sum')%></td>
+      <td><%=@bills.sum('paid')%></td>
+      <td><%=@bills.sum('sum') - @bills.sum('paid')%></td>
+
+    </tr>
+  </table>
+</p>

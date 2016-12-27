@@ -1,0 +1,12 @@
+<div class="field">
+  <%= f.label "Банк" %><br>
+  <%= f.text_field :bank %>
+</div>
+<div class="field">
+  <%= f.label "Баланс" %><br>
+  <%= f.text_field :balance %>
+</div>
+<div class="field">
+  <%= f.label "Валюта" %><br>
+  <%= f.select :currency_id, Currency.all.map { |c| [c.name, c.id] } %>
+</div>

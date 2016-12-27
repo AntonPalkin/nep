@@ -1,0 +1,20 @@
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/byebug-9.0.4/ext/byebug
+/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/bin/ruby -r ./siteconf20160530-44905-1dad9ib.rb extconf.rb
+creating Makefile
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/byebug-9.0.4/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/byebug-9.0.4/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/antonpaule/ownCloud/www/new_econom/path/ruby/2.0.0/gems/byebug-9.0.4/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20160530-44905-8mm2w7/byebug
+installing default byebug libraries

@@ -1,0 +1,76 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% if Ioe.first and Comp.second and TypeIoe.first and Ioe.first and Project.first %>
+
+    <!--<%= f.date_select :date ,  { :discard_day => true}%>-->
+
+  <div class = "field">
+    <%= f.label "Период" %><br>
+    От <br><%= f.date_select :from_date %><br>
+    До <br><%= f.date_select :to_date %><br>
+    Оплатить до <br><%= f.date_select :pay_date %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label "Тип" %><br>
+
+    <%= f.select :list_id, [ ["Входящий" , 1 ] , ["Исходящий", 2 ] , ["ВГО" , 3] ]  %>
+
+
+
+  </div>
+  <div class="field">
+    <%= f.label "Кому" %><br>
+    <%= f.select :from_comp_id, Comp.all.map { |c| ["#{c.name} #{c.bank}" , c.id] } %>
+  </div>
+  <div class="field">
+    <%= f.label "От кого" %><br>
+    <%= f.select :to_comp_id, Comp.all.map {|c| ["#{c.name} #{c.bank}" , c.id]} %>
+<br>
+  </div>
+
+  <div class="field">
+    <%= f.label "Сумма" %><br>
+    <%= f.text_field :sum %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Статья затрат" %><br>
+    <%= f.select( :ioe_id, Ioe.all.map {|c| [c.name, c.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label "Проект" %><br>
+    <%= f.select :project_id,  Project.all.map { |c| [c.name, c.id] } %>
+  </div>
+
+  <div class="field">
+    <%= f.label "PDF Файл" %><br>
+    <%= f.file_field :document %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Описание" %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Сохранить" %>
+  </div>
+<% else %>
+        <div id="error_explanation">
+          <h2>Справочники не заполнены</h2>
+        </div>
+<% end %>
+<% end %>

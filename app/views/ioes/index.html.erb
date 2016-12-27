@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Список статей</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Название</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ioes.each do |io| %>
+      <tr>
+
+        <td><%= link_to io.name, io %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новая статья затрат', new_io_path %>

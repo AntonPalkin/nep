@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Бренд: </strong>
+  <%= @comp.brand %>
+</p>
+
+<p>
+  <strong>Название: </strong>
+  <%= @comp.name %>
+</p>
+
+<p>
+  <strong>Описание: </strong>
+  <%= @comp.description %>
+</p>
+
+<p>
+ <%= render "transactions/index" %>
+</p>
+<p>
+  <%= render "bills/index" %>
+</p>
+<%= link_to 'Редактировать', edit_comp_path(@comp) if current_user.is_admin? %> |
+<%= link_to 'Назад', comps_path %>

@@ -1,0 +1,7 @@
+<h3>Редактирование статей затрат</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Показать', @io %> |
+<%= link_to 'Удалить', @io, method: :delete, data: { confirm: 'Вы уверены?' } %> |
+<%= link_to 'Назад', ioes_path %>

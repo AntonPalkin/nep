@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Список проектов</h3>
+
+<table class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Баланс</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= link_to project.name, project %></td>
+        <td><%= project.balace %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый проект', new_project_path %>

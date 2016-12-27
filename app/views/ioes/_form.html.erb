@@ -1,0 +1,35 @@
+<%= form_for(@io) do |f| %>
+  <% if @io.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@io.errors.count, "error") %> prohibited this io from being saved:</h2>
+
+      <ul>
+      <% @io.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Статья затрат" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Описание" %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Тип затрат" %><br>
+    <%= f.select( :type_id, TypeIoe.all.map {|c| [c.name, c.id]}) %>
+
+  </div>
+
+
+
+
+  <div class="actions">
+    <%= f.submit "Сохранить" %>
+  </div>
+<% end %>

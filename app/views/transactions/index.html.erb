@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h3>История транзакций</h3>
+
+<table class="table table-striped" >
+  <thead>
+  <tr>
+    <th>Транзакция/Счет #</th>
+    <th>Сумма</th>
+    <th>Откуда</th>
+    <th>Куда</th>
+  </tr>
+  </thead>
+<% @transactions.each do |transaction| %>
+  <tr>
+  <td># <%= transaction.id %>/ <%= link_to transaction.bill_id , bill_path(transaction.bill_id) %>  </td>
+  <td><%= transaction.sum %></td>
+  <td><%= Comp.find(transaction.from_comp_id).name %><br>
+     <%= "Было: #{transaction.old_balance_from}"  if transaction.old_balance_from %><br>
+     <%= "Стало: #{transaction.new_balance_from}" if transaction.new_balance_from %>
+  </td>
+  <td><%= Comp.find(transaction.to_comp_id).name %><br>
+    <%= "Было: #{transaction.old_balance_in}"  if transaction.old_balance_in %><br>
+    <%= "Стало: #{transaction.new_balance_in}" if transaction.new_balance_in %>
+  </td>
+
+  </tr>
+<% end %>
+      </table>
+
+
+  <tbody>

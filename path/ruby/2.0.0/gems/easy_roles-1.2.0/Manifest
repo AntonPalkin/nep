@@ -1,0 +1,16 @@
+CHANGELOG.rdoc
+Gemfile
+Gemfile.lock
+README.rdoc
+Rakefile
+easy_roles.gemspec
+init.rb
+lib/easy_roles.rb
+lib/generators/active_record/easy_roles_generator.rb
+lib/generators/active_record/templates/migration_bitmask.rb
+lib/generators/active_record/templates/migration_non_bitmask.rb
+lib/generators/easy_roles/easy_roles_generator.rb
+lib/generators/templates/README
+spec/easy_roles_spec.rb
+spec/spec_helper.rb
+Manifest

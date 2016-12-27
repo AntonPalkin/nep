@@ -1,0 +1,7 @@
+<h3>Редактирование</h3>
+
+<%= render 'form' %>
+
+<%= link_to 'Подробнее', @employee %> |
+<%= link_to 'Назад', employees_path %> |
+<%= link_to 'Удалить', @employee, method: :delete, data: { confirm: 'Вы уверены?' } %>

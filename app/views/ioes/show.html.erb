@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название:</strong>
+  <%= @io.name %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @io.description %>
+</p>
+
+<%= link_to 'Редактировать', edit_io_path(@io) %> |
+<%= link_to 'Назад', ioes_path %>

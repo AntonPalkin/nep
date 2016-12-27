@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Список сотрудников</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ФИО</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @employees.each do |employee| %>
+      <tr>
+        <td><%= link_to "#{employee.lastname} #{employee.name} #{employee.secondname}", employee %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый сотрудник', new_employee_path %>

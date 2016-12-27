@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Пользователи</h3>
+
+<table class="table table-striped" >
+  <thead>
+  <tr>
+    <th>email</th>
+    <th>ФИО</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %><br><%= user.roles %></td><td><%= user.email %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<br><%= link_to "Новый пользователь" , new_user_path  %>
+<br>
+

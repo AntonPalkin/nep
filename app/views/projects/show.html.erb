@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Название:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Баланс:</strong>
+  <%= @project.balace %>
+</p>
+
+<%= link_to 'Редактировать', edit_project_path(@project) %> |
+<%= link_to 'Назад', projects_path %>

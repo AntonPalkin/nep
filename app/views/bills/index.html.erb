@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+<% if current_user and current_user.is_user? %>
+<h3>Список счетов</h3>
+<b><%= link_to 'Создать счет',  new_bill_path %></b><br>
+<table class="table table-striped" >
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td>
+          # <%= link_to bill.id , bill %> от <%= bill.created_at.strftime("%d-%m-%Y")  %></br>
+          <b>Статус: </b> <%= TypeOfBill.find(bill.type_of_bill_id).name  %><br>
+          <b>От:</b> <%= Comp.find(bill.to_comp_id).name %><br>
+          <b>Кому:</b> <%= Comp.find(bill.from_comp_id).name %><br>
+          <b>Сумма:</b> <%= bill.sum %><br>
+          <b>Оплачено: </b> <%= bill.paid %><br>
+          <b>Остаток: </b> <%= (bill.sum - bill.paid)  %><br>
+          <b>Проект:</b> <%= Project.find(bill.project_id).name %><br>
+          <b>Описание:</b><%= bill.description %>
+          <br>
+          </td>
+        <td><br>
+          <b>Действия</b><br>
+
+
+          <% if bill.type_of_bill_id == 1 and current_user.is_admin? %>
+            <%= link_to 'Согласовать' , confirm_bill_path(bill) %><br>
+            <%= link_to 'Ошибка, отправить на доработку' , err_bill_path(bill) %>
+          <% elsif bill.type_of_bill_id == 3 %>
+              <%= link_to 'Оплатить' , pay_bill_path(bill) %><br>
+
+          <% elsif  bill.type_of_bill_id == 9 and current_user.is_buh? %>
+              <%= link_to 'Коррекция' , pay_bill_path(bill) %><br>
+
+          <% elsif bill.type_of_bill_id == 8 %>
+              <%= link_to 'Исправить', edit_bill_path(bill) %><br>
+          <% else %>
+            Нет доступных действий<br>
+          <% end %>
+
+
+          <br>
+          <% if bill.type_of_bill_id == 1 and current_user.is_admin? %>
+              <%= link_to 'Отложить' , hold_bill_path(bill) %>
+          <% end %>
+
+          <!-- if Admin -->
+          <% if current_user.is_admin? and Transaction.where(bill_id: bill.id).blank? %>
+              <hr>
+              (!) <%= link_to 'Редактировать', edit_bill_path(bill) %><br>
+              (!) <%= link_to 'Удалить', bill, method: :delete, data: { confirm: 'Вы уверены?' } %>
+          <% end %><br>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% end %>
